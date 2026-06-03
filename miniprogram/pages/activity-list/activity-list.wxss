@@ -1,0 +1,225 @@
+.activity-page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.list-hero {
+  padding: 32rpx 24rpx 18rpx;
+}
+
+.hero-badge {
+  display: inline-flex;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: rgba(14, 165, 107, 0.1);
+  color: var(--primary-dark);
+  font-size: 20rpx;
+  font-weight: 700;
+  letter-spacing: 4rpx;
+  margin-bottom: 18rpx;
+}
+
+.hero-title {
+  font-size: 48rpx;
+  line-height: 1.18;
+  color: var(--text-primary);
+  font-weight: 800;
+  margin-bottom: 10rpx;
+}
+
+.hero-desc {
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.search-bar {
+  padding: 8rpx 24rpx 12rpx;
+  background: transparent;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 18rpx 22rpx;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1rpx solid rgba(18, 69, 51, 0.06);
+  box-shadow: 0 12rpx 28rpx rgba(17, 69, 52, 0.06);
+}
+
+.search-icon {
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  height: 42rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.search-clear {
+  flex-shrink: 0;
+  padding: 8rpx 12rpx;
+  border-radius: 999rpx;
+  background: rgba(14, 165, 107, 0.08);
+  color: var(--primary-color);
+  font-size: 22rpx;
+}
+
+.tab-shell {
+  padding: 0 24rpx;
+}
+
+.tab-header {
+  display: flex;
+  padding: 8rpx;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.91);
+  border: 1rpx solid rgba(18, 69, 51, 0.06);
+  box-shadow: 0 12rpx 28rpx rgba(17, 69, 52, 0.05);
+}
+
+.tab-item {
+  flex: 1;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  border-radius: 22rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.24s ease;
+}
+
+.tab-item.active {
+  background: linear-gradient(135deg, #effaf4 0%, #e4f5ec 100%);
+  color: var(--primary-dark);
+  box-shadow: inset 0 0 0 1rpx rgba(14, 165, 107, 0.08);
+}
+
+.tab-item:active {
+  transform: scale(0.985);
+}
+
+.content {
+  padding: 22rpx 24rpx 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18rpx;
+  padding: 80rpx 0;
+  color: var(--text-tertiary);
+  font-size: 28rpx;
+}
+
+.loading-spinner {
+  width: 48rpx;
+  height: 48rpx;
+  border: 4rpx solid rgba(18, 69, 51, 0.1);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.empty-tip {
+  padding: 120rpx 32rpx 90rpx;
+}
+
+.btn-create {
+  margin-top: 12rpx;
+  padding: 0 52rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 999rpx;
+  background: var(--primary-gradient);
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 700;
+  border: none;
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-create:active {
+  transform: scale(0.985);
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.activity-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 30rpx;
+  padding: 26rpx 24rpx;
+  border: 1rpx solid rgba(18, 69, 51, 0.06);
+  box-shadow: var(--shadow-card);
+}
+
+.activity-card:active {
+  transform: scale(0.99);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18rpx;
+  margin-bottom: 18rpx;
+}
+
+.activity-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 32rpx;
+  line-height: 1.38;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 18rpx;
+}
+
+.meta-item {
+  padding: 10rpx 16rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  background: linear-gradient(135deg, #f8fcfa 0%, #f1f6f4 100%);
+  border: 1rpx solid rgba(18, 69, 51, 0.05);
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14rpx;
+}
+
+.progress-label {
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+}
+
+.progress-count {
+  font-size: 24rpx;
+  color: var(--primary-dark);
+  font-weight: 700;
+}

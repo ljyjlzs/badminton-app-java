@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api *)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(rtk find *)",
+      "Bash(rtk ls *)",
+      "Bash(git checkout *)",
+      "Bash(python3)",
+      "Bash(python)",
+      "Bash(rtk grep *)",
+      "Bash(rtk mvn *)",
+      "Bash(java -version)",
+      "Bash(mvn -version)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(rtk curl *)",
+      "Read(//d/work/**)",
+      "Bash(unzip -q /tmp/jdk17.zip)",
+      "Bash(D:/work/jdk-17.0.12/bin/java *)",
+      "Bash(mysql --version)",
+      "Bash(sc query *)",
+      "Bash(where mysql *)",
+      "Bash(tasklist)",
+      "Bash(D:/work/mysql8.0/bin/mysql.exe *)",
+      "Bash(rtk read *)",
+      "Bash(netstat -ano)",
+      "Bash(\"D:/work/mysql8.0/mysql-8.0.29-winx64/bin/mysql.exe\" -u root -p123456 -e \"SELECT user, host FROM mysql.user;\")",
+      "Bash(\"D:/work/mysql8.0/mysql-8.0.29-winx64/bin/mysql.exe\" -u root -e \"SELECT user, host FROM mysql.user;\")",
+      "Bash(cmd.exe *)",
+      "Bash(cmd *)",
+      "Bash(powershell.exe *)",
+      "Bash(where wechatdevtools *)",
+      "WebSearch",
+      "Bash(rtk git *)",
+      "Bash(gh auth *)",
+      "Bash(git *)"
+    ]
+  }
+}

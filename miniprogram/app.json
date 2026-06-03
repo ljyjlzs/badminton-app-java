@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ai-chat/ai-chat",
+    "pages/activity-list/activity-list",
+    "pages/create-activity/create-activity",
+    "pages/activity-detail/activity-detail",
+    "pages/grouping/grouping",
+    "pages/match-score/match-score",
+    "pages/ranking/ranking",
+    "pages/challenge/challenge",
+    "pages/rules/rules"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f5f8f7",
+    "navigationBarTitleText": "羽毛球",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#73867f",
+    "selectedColor": "#0ea56b",
+    "backgroundColor": "#fbfcfc",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-icons/home.png",
+        "selectedIconPath": "images/tab-icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/ai-chat/ai-chat",
+        "text": "AI",
+        "iconPath": "images/tab-icons/chat.png",
+        "selectedIconPath": "images/tab-icons/chat-active.png"
+      },
+      {
+        "pagePath": "pages/activity-list/activity-list",
+        "text": "活动",
+        "iconPath": "images/tab-icons/list.png",
+        "selectedIconPath": "images/tab-icons/list-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于选择活动地点"
+    }
+  },
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
