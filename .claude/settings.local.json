@@ -41,7 +41,8 @@
       "Bash(D:/work/cpolar/cpolar.exe http *)",
       "Bash(D:/work/cpolar/cpolar.exe authtoken *)",
       "Bash(curl -s http://localhost:4040/api/tunnels)",
-      "Bash(taskkill *)"
+      "Bash(taskkill *)",
+      "Bash(where mvn *)"
     ]
   }
 }
