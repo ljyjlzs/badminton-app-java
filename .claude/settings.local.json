@@ -42,7 +42,10 @@
       "Bash(D:/work/cpolar/cpolar.exe authtoken *)",
       "Bash(curl -s http://localhost:4040/api/tunnels)",
       "Bash(taskkill *)",
-      "Bash(where mvn *)"
+      "Bash(where mvn *)",
+      "Bash(ipconfig)",
+      "Bash(findstr \"IPv4\")",
+      "Bash(netsh advfirewall *)"
     ]
   }
 }

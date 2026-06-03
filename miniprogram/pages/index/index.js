@@ -26,18 +26,26 @@ Page({
   },
 
   checkLogin: function() {
-    const token = wx.getStorageSync('token');
-    const userInfo = wx.getStorageSync('userInfo');
+    try {
+      const token = wx.getStorageSync('token');
+      const userInfo = wx.getStorageSync('userInfo');
 
-    if (token && userInfo) {
-      app.globalData.userInfo = userInfo;
-      app.globalData.isLoggedIn = true;
-      this.setData({
-        userInfo: userInfo,
-        isLoggedIn: true
-      });
-      this.loadActivities();
-    } else {
+      if (token && userInfo) {
+        app.globalData.userInfo = userInfo;
+        app.globalData.isLoggedIn = true;
+        this.setData({
+          userInfo: userInfo,
+          isLoggedIn: true,
+          loading: false
+        });
+        this.loadActivities();
+      } else {
+        this.setData({
+          loading: false
+        });
+      }
+    } catch (e) {
+      console.error('checkLogin error:', e);
       this.setData({
         loading: false
       });

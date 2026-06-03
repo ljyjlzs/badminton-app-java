@@ -1,7 +1,7 @@
 App({
   onLaunch: function () {
     // API基础地址
-    this.globalData.baseUrl = 'http://c9d5f36d.natappfree.cc';
+    this.globalData.baseUrl = 'http://127.0.0.1:8049';
 
     // 从本地缓存恢复登录状态，避免每次冷启动都要重新授权
     try {
