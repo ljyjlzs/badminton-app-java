@@ -14,6 +14,8 @@ public interface MatchService {    void startGrouping(Long activityId, Long user
 
     void confirmScore(Long userId, Long activityId, Long matchId, boolean confirmed);
 
+    void modifyScore(Long userId, ScoreSubmitRequest request);
+
     MatchVO getMatchDetail(Long matchId);
 
     List<Match> getByActivityId(Long activityId);

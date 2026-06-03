@@ -219,6 +219,19 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
+    @Transactional
+    public void updateActivityStatus(Long activityId, String status) {
+        Activity activity = getById(activityId);
+        if (activity == null) {
+            throw BusinessException.notFound("活动");
+        }
+
+        activity.setStatus(status);
+        activityMapper.updateById(activity);
+        log.info("活动状态更新: id={}, status={}", activityId, status);
+    }
+
+    @Override
     public Activity getById(Long id) {
         return activityMapper.selectById(id);
     }

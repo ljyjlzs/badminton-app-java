@@ -123,12 +123,29 @@ public class ChallengeServiceImpl implements ChallengeService {
             throw new BusinessException("挑战赛尚未全部完成");
         }
 
-        // 获取挑战赛胜者
-        List<Team> challengeWinners = getChallengeWinners(activityId);
+        // 使用总积分来决定决赛队伍
+        Map<Long, Integer> totalScores = scoreService.getUserScores(activityId);
 
-        if (challengeWinners.size() < 2) {
-            throw new BusinessException("挑战赛胜者不足，无法开始决赛");
+        List<Team> qualifiedTeams = teamMapper.selectList(
+                new LambdaQueryWrapper<Team>()
+                        .eq(Team::getActivityId, activityId)
+                        .eq(Team::getIsEliminated, false)
+                        .orderByDesc(Team::getId)
+        );
+
+        if (qualifiedTeams.size() < 2) {
+            throw new BusinessException("晋级队伍不足，无法开始决赛");
         }
+
+        // 按总积分排序，取积分最高的两支队伍
+        qualifiedTeams.sort((t1, t2) -> {
+            int score1 = getTeamScore(t1, totalScores);
+            int score2 = getTeamScore(t2, totalScores);
+            return Integer.compare(score2, score1);
+        });
+
+        Team team1 = qualifiedTeams.get(0);
+        Team team2 = qualifiedTeams.get(1);
 
         // 创建决赛比赛
         Match finalMatch = new Match();
@@ -136,15 +153,15 @@ public class ChallengeServiceImpl implements ChallengeService {
         finalMatch.setRound("final");
         finalMatch.setRoundOrder(1);
         finalMatch.setCourt("决赛场地");
-        finalMatch.setTeam1Id(challengeWinners.get(0).getId());
-        finalMatch.setTeam2Id(challengeWinners.get(1).getId());
+        finalMatch.setTeam1Id(team1.getId());
+        finalMatch.setTeam2Id(team2.getId());
         finalMatch.setStatus("pending");
         matchMapper.insert(finalMatch);
 
         // 更新活动状态
-        activityService.updateActivityStatus(activityId, userId, "final");
+        activityService.updateActivityStatus(activityId, "final");
 
-        log.info("决赛开始: activityId={}", activityId);
+        log.info("决赛开始: activityId={}, team1={}, team2={}", activityId, team1.getId(), team2.getId());
     }
 
     private List<Team> getChallengeWinners(Long activityId) {

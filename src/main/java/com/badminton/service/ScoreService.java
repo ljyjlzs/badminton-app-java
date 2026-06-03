@@ -13,5 +13,7 @@ public interface ScoreService {    void calculateAndSaveScore(Long activityId, L
 
     Map<Long, Integer> getUserScores(Long activityId);
 
+    Map<Long, Integer> getUserGroupScores(Long activityId);
+
     List<Score> getByActivityAndUser(Long activityId, Long userId);
 }

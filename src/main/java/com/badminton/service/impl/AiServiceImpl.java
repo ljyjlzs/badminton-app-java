@@ -123,7 +123,11 @@ public class AiServiceImpl implements AiService {
 
     private String buildUserContext(Long userId) {
         StringBuilder sb = new StringBuilder();
-        sb.append("你是羽毛球活动管理小程序的内置AI系统。你直接连接小程序后端，拥有操作权限。\n\n");
+        sb.append("你是小羽，一个智能AI助手。你既可以回答各种日常问题，也可以帮助用户管理羽毛球活动。\n\n");
+        sb.append("你的能力：\n");
+        sb.append("1. 回答各种问题：知识问答、聊天、写作、翻译、计算等\n");
+        sb.append("2. 管理羽毛球活动：查看活动、报名、查看比分、查看排名等\n\n");
+        sb.append("请用友好、简洁的语气回答。如果是羽毛球相关问题，可以主动提供活动信息。\n\n");
 
         // 用户信息
         User user = userService.getById(userId);

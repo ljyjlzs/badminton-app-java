@@ -172,12 +172,39 @@ public class MatchServiceImpl implements MatchService {
             log.info("比分确认: matchId={}", matchId);
         } else {
             match.setStatus("pending");
-            match.setTeam1Score(null);
-            match.setTeam2Score(null);
             matchMapper.updateById(match);
 
-            log.info("比分拒绝: matchId={}", matchId);
+            log.info("比分拒绝: matchId={}, 保留比分供修改", matchId);
         }
+    }
+
+    @Override
+    @Transactional
+    public void modifyScore(Long userId, ScoreSubmitRequest request) {
+        Match match = matchMapper.selectById(request.getMatchId());
+        if (match == null) {
+            throw BusinessException.notFound("比赛");
+        }
+
+        if (!"confirming".equals(match.getStatus())) {
+            throw new BusinessException("只有确认中的比赛才能修改比分");
+        }
+
+        boolean isTeamMember = isUserInTeam(userId, match.getTeam1Id()) || isUserInTeam(userId, match.getTeam2Id());
+        if (!isTeamMember) {
+            throw BusinessException.forbidden();
+        }
+
+        if (request.getTeam1Score() < 0 || request.getTeam1Score() > 30 ||
+            request.getTeam2Score() < 0 || request.getTeam2Score() > 30) {
+            throw new BusinessException("比分必须在0-30之间");
+        }
+
+        match.setTeam1Score(request.getTeam1Score());
+        match.setTeam2Score(request.getTeam2Score());
+        matchMapper.updateById(match);
+
+        log.info("比分修改: matchId={}, {}-{}", request.getMatchId(), request.getTeam1Score(), request.getTeam2Score());
     }
 
     @Override

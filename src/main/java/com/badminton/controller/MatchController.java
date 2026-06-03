@@ -58,6 +58,13 @@ public class MatchController {
         return Result.success();
     }
 
+    @PutMapping("/score/modify")
+    public Result<Void> modifyScore(@Valid @RequestBody ScoreSubmitRequest request, HttpServletRequest httpRequest) {
+        Long userId = (Long) httpRequest.getAttribute(AuthInterceptor.USER_ID_ATTRIBUTE);
+        matchService.modifyScore(userId, request);
+        return Result.success();
+    }
+
     @GetMapping("/{id}")
     public Result<MatchVO> getMatchDetail(@PathVariable Long id) {
         MatchVO match = matchService.getMatchDetail(id);

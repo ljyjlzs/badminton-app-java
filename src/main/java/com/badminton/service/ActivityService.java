@@ -19,6 +19,8 @@ public interface ActivityService {
 
     void updateActivityStatus(Long activityId, Long userId, String status);
 
+    void updateActivityStatus(Long activityId, String status);
+
     Activity getById(Long id);
 
     ActivityVO toVO(Activity activity);

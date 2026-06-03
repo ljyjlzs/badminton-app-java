@@ -14,4 +14,11 @@ public interface ScoreMapper extends BaseMapper<Score> {    @Select("SELECT user
             "GROUP BY user_id " +
             "ORDER BY total_score DESC")
     List<Map<String, Object>> getUserScores(@Param("activityId") Long activityId);
+
+    @Select("SELECT user_id, SUM(score_change) as total_score " +
+            "FROM scores " +
+            "WHERE activity_id = #{activityId} AND source = 'group' " +
+            "GROUP BY user_id " +
+            "ORDER BY total_score DESC")
+    List<Map<String, Object>> getUserGroupScores(@Param("activityId") Long activityId);
 }

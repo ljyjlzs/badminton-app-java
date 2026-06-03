@@ -99,6 +99,18 @@ public class ScoreServiceImpl implements ScoreService {
     }
 
     @Override
+    public Map<Long, Integer> getUserGroupScores(Long activityId) {
+        List<Map<String, Object>> scores = scoreMapper.getUserGroupScores(activityId);
+        Map<Long, Integer> result = new HashMap<>();
+        for (Map<String, Object> item : scores) {
+            Long userId = ((Number) item.get("user_id")).longValue();
+            Integer totalScore = ((Number) item.get("total_score")).intValue();
+            result.put(userId, totalScore);
+        }
+        return result;
+    }
+
+    @Override
     public List<Score> getByActivityAndUser(Long activityId, Long userId) {
         return scoreMapper.selectList(
                 new LambdaQueryWrapper<Score>()
