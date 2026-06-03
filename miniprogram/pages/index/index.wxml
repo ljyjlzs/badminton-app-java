@@ -122,10 +122,10 @@
       <view wx:else class="activity-stack">
         <view
           wx:for="{{myActivities}}"
-          wx:key="_id"
+          wx:key="id"
           class="activity-card"
           bindtap="goToActivityDetail"
-          data-id="{{item._id}}">
+          data-id="{{item.id}}">
           <view class="activity-card-top">
             <text class="activity-name">{{item.name}}</text>
             <view class="status-badge status-{{item.status}}">
@@ -164,10 +164,10 @@
       <view wx:else class="activity-stack">
         <view
           wx:for="{{joinableActivities}}"
-          wx:key="_id"
+          wx:key="id"
           class="activity-card"
           bindtap="goToActivityDetail"
-          data-id="{{item._id}}">
+          data-id="{{item.id}}">
           <view class="activity-card-top">
             <text class="activity-name">{{item.name}}</text>
             <view class="status-badge status-registering">报名中</view>
@@ -205,10 +205,10 @@
       <view wx:else class="activity-stack">
         <view
           wx:for="{{unavailableActivities}}"
-          wx:key="_id"
+          wx:key="id"
           class="activity-card disabled"
           bindtap="goToActivityDetail"
-          data-id="{{item._id}}">
+          data-id="{{item.id}}">
           <view class="activity-card-top">
             <text class="activity-name">{{item.name}}</text>
             <view class="status-badge status-{{item.status}}">

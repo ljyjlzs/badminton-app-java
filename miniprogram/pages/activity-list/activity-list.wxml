@@ -65,9 +65,9 @@
       <view wx:if="{{filteredCreatedActivities.length > 0}}" class="activity-list">
         <view
           wx:for="{{filteredCreatedActivities}}"
-          wx:key="_id"
+          wx:key="id"
           class="activity-card"
-          data-id="{{item._id}}"
+          data-id="{{item.id}}"
           bindtap="goToActivity">
           <view class="card-top">
             <text class="activity-name">{{item.name}}</text>
@@ -124,9 +124,9 @@
       <view wx:if="{{filteredJoinedActivities.length > 0}}" class="activity-list">
         <view
           wx:for="{{filteredJoinedActivities}}"
-          wx:key="_id"
+          wx:key="id"
           class="activity-card"
-          data-id="{{item._id}}"
+          data-id="{{item.id}}"
           bindtap="goToActivity">
           <view class="card-top">
             <text class="activity-name">{{item.name}}</text>
@@ -165,9 +165,9 @@
       <view wx:if="{{!searchLoading && searchResults.length > 0}}" class="activity-list">
         <view
           wx:for="{{searchResults}}"
-          wx:key="_id"
+          wx:key="id"
           class="activity-card"
-          data-id="{{item._id}}"
+          data-id="{{item.id}}"
           bindtap="goToActivity">
           <view class="card-top">
             <text class="activity-name">{{item.name}}</text>
