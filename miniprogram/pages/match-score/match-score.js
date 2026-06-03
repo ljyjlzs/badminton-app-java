@@ -144,16 +144,28 @@ Page({
   modifyScore: function() {
     wx.showModal({
       title: '修改比分',
-      content: '确定要修改已提交的比分吗？修改后需重新输入并提交。',
+      content: '确定要修改比分吗？',
       confirmText: '确定修改',
       cancelText: '取消',
       success: res => {
         if (res.confirm) {
-          this.setData({
-            team1Score: 0,
-            team2Score: 0
-          });
-          this.loadMatchDetail();
+          // 调用后端修改比分接口
+          const { put } = require('../../utils/request');
+          put('/match/score/modify', {
+            matchId: parseInt(this.data.matchId),
+            team1Score: this.data.team1Score,
+            team2Score: this.data.team2Score
+          })
+            .then(res => {
+              wx.showToast({
+                title: '比分已修改',
+                icon: 'success'
+              });
+              this.loadMatchDetail();
+            })
+            .catch(err => {
+              console.error('修改比分失败：', err);
+            });
         }
       }
     });

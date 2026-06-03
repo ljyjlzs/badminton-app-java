@@ -186,8 +186,9 @@ public class MatchServiceImpl implements MatchService {
             throw BusinessException.notFound("比赛");
         }
 
-        if (!"confirming".equals(match.getStatus())) {
-            throw new BusinessException("只有确认中的比赛才能修改比分");
+        // 允许在 confirming 和 pending 状态下修改比分
+        if (!"confirming".equals(match.getStatus()) && !"pending".equals(match.getStatus())) {
+            throw new BusinessException("只有待确认或待开始的比赛才能修改比分");
         }
 
         boolean isTeamMember = isUserInTeam(userId, match.getTeam1Id()) || isUserInTeam(userId, match.getTeam2Id());
@@ -202,6 +203,8 @@ public class MatchServiceImpl implements MatchService {
 
         match.setTeam1Score(request.getTeam1Score());
         match.setTeam2Score(request.getTeam2Score());
+        // 修改后状态设为 confirming，等待对手确认
+        match.setStatus("confirming");
         matchMapper.updateById(match);
 
         log.info("比分修改: matchId={}, {}-{}", request.getMatchId(), request.getTeam1Score(), request.getTeam2Score());

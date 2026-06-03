@@ -108,5 +108,12 @@
         <button class="btn-back" bindtap="goBack">返回活动</button>
       </view>
     </view>
+
+    <view wx:if="{{match.status === 'confirming' && (isOrganizer || isScorer)}}" class="confirming-section">
+      <view class="confirming-hint">比分待确认中，等待对手确认</view>
+      <view class="confirming-actions">
+        <button class="btn-modify" bindtap="modifyScore">修改比分</button>
+      </view>
+    </view>
   </view>
 </view>
