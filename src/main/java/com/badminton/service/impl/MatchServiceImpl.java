@@ -226,7 +226,17 @@ public class MatchServiceImpl implements MatchService {
                         .eq(Match::getActivityId, activityId)
                         .orderByAsc(Match::getRoundOrder)
         );
-    }    private List<Team> performGrouping(List<Registration> registrations, String activityType) {
+    }
+
+    @Override
+    public List<MatchVO> getMatchList(Long activityId) {
+        List<Match> matches = getByActivityId(activityId);
+        return matches.stream()
+                .map(this::toVO)
+                .collect(Collectors.toList());
+    }
+
+    private List<Team> performGrouping(List<Registration> registrations, String activityType) {
         // 按等级降序排列
         registrations.sort((a, b) -> b.getLevel() - a.getLevel());
 

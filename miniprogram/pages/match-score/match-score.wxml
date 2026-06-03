@@ -104,7 +104,6 @@
       </view>
 
       <view class="finished-actions">
-        <button wx:if="{{isOrganizer || isScorer}}" class="btn-modify" bindtap="modifyScore">修改比分</button>
         <button class="btn-back" bindtap="goBack">返回活动</button>
       </view>
     </view>

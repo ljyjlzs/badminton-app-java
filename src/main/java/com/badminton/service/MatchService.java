@@ -6,7 +6,8 @@ import com.badminton.vo.MatchVO;
 
 import java.util.List;
 
-public interface MatchService {    void startGrouping(Long activityId, Long userId);
+public interface MatchService {
+    void startGrouping(Long activityId, Long userId);
 
     void startMatch(Long activityId, Long matchId, Long userId);
 
@@ -19,4 +20,6 @@ public interface MatchService {    void startGrouping(Long activityId, Long user
     MatchVO getMatchDetail(Long matchId);
 
     List<Match> getByActivityId(Long activityId);
+
+    List<MatchVO> getMatchList(Long activityId);
 }

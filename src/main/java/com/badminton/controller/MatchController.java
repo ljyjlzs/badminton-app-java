@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -69,5 +70,11 @@ public class MatchController {
     public Result<MatchVO> getMatchDetail(@PathVariable Long id) {
         MatchVO match = matchService.getMatchDetail(id);
         return Result.success(match);
+    }
+
+    @GetMapping("/list")
+    public Result<List<MatchVO>> getMatchList(@RequestParam Long activityId) {
+        List<MatchVO> matches = matchService.getMatchList(activityId);
+        return Result.success(matches);
     }
 }
