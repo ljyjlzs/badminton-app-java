@@ -4,21 +4,21 @@
 
 ## 技术栈
 
-- **框架**: Spring Boot 2.7.18
-- **ORM**: MyBatis-Plus 3.5.3.1
+- **框架**: Spring Boot 3.2.5
+- **ORM**: MyBatis-Plus 3.5.5
 - **数据库**: MySQL 8.0
-- **认证**: JWT (jjwt 0.11.5)
+- **认证**: JWT (jjwt 0.12.5)
 - **微信**: WxJava 4.5.0 (微信小程序 SDK)
-- **API 文档**: Knife4j 3.0.3
+- **API 文档**: Knife4j 4.4.0
 - **构建工具**: Maven
-- **Java 版本**: JDK 8
+- **Java 版本**: JDK 17
 
 ## 快速开始
 
 ### 环境要求
 
-- JDK 8+
-- Maven 3.6+
+- JDK 17+
+- Maven 3.8+
 - MySQL 8.0+
 
 ### 本地开发
@@ -135,6 +135,8 @@ src/main/java/com/badminton/
 ```
 
 ## 部署说明
+
+> 📖 详细部署文档请查看 [docs/DEPLOY.md](docs/DEPLOY.md)
 
 ### 生产环境部署
 

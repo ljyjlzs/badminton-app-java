@@ -34,7 +34,14 @@
       "WebSearch",
       "Bash(rtk git *)",
       "Bash(gh auth *)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(where gh *)",
+      "Bash(mkdir -p D:/work/cpolar)",
+      "Bash(unzip -q /tmp/cpolar-stable-windows-amd64.zip)",
+      "Bash(D:/work/cpolar/cpolar.exe http *)",
+      "Bash(D:/work/cpolar/cpolar.exe authtoken *)",
+      "Bash(curl -s http://localhost:4040/api/tunnels)",
+      "Bash(taskkill *)"
     ]
   }
 }
